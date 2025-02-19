@@ -8,6 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\src\WayForPay\WayForPay.csproj" />
+      <ProjectReference Include="..\..\WayForPay\WayForPay.csproj" />
     </ItemGroup>
 
     <ItemGroup>
