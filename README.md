@@ -1,3 +1,5 @@
+# WayForPayCore
+is a .NET Core library for integrating with the WayForPay payment system in ASP.NET Core MVC applications.
 ## Getting Started
 
 ### Configuration
@@ -80,4 +82,4 @@ private readonly ExampleDbContext _dbContext;
 ### Usage
 Send a POST request to /Pay with order details to initiate payment.
 WayForPay will handle the payment and notify your service via MerchantServiceEndpoint.
-See the full usage in [Examples](https://github.com/golody/WayForPay-Core/Examples)
+See the full usage in [Examples](https://github.com/golody/WayForPay-Core/tree/main/Examples/ExampleMVC)
