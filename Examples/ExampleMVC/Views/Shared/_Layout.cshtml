@@ -1,0 +1,22 @@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+<header>
+    <a class="nav-item btn btn-light" asp-controller="Home" asp-action="Index">
+        Home
+    </a>
+    <a class="nav-item btn btn-light" asp-controller="Home" asp-action="Products">
+        Products
+    </a>
+</header>
+<div class="container flex-row justify-content-center align-items-center">
+    @RenderBody()
+</div>
+</body>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</html>

@@ -1,0 +1,21 @@
+@model Order
+
+<h1 class="text-primary">Buy @Model.Product.Name now!</h1>
+<form class="form w-50" asp-controller="Payment" asp-action="Pay" method="post">
+    <input type="hidden" asp-for="ProductId" value="@Model.ProductId"/>
+    <input type="hidden" asp-for="Product.Price" value="@Model.Product.Price"/>
+    <input type="hidden" asp-for="Product.Name" value="@Model.Product.Name"/>
+    <div class="form-group mb-3">
+        <label for="quantity" class="form-label">Quantity</label>
+        <input type="number" asp-for="Quantity" value="1" class="form-control" id="quantity">
+    </div>
+    <div class="form-group mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" asp-for="User.Email" class="form-control" id="email">
+    </div>
+    <div class="form-group mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" asp-for="User.Name" class="form-control" id="name">
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Buy for @Model.Product.Price EUR</button>
+</form>

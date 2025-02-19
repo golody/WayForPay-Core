@@ -1,0 +1,20 @@
+@model IEnumerable<Product>
+<div class="products">
+    @foreach (var product in Model) {
+        <div class="card bg-light shadow-sm flex-column justify-content-center align-items-center" style="width: 10rem; height: 10rem;">
+            <p>@product.Name</p>
+            <a class="btn btn-primary" 
+               asp-controller="Home" 
+               asp-action="BuyProduct" 
+               asp-route-id="@product.Id">Buy for @product.Price EUR</a>
+        </div>
+    }
+</div>
+<style>
+    .products {
+        padding: 1rem;
+        display:grid;
+        grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+        grid-gap: 1rem;
+    }
+</style>
