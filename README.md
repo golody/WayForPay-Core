@@ -49,6 +49,7 @@ private readonly ExampleDbContext _dbContext;
             ) 
             //Optional Fields
             {
+                OrderReference = order.Id.ToString(),
                 ClientFirstName = order.User.Name,
                 ClientEmail = order.User.Email
             };
