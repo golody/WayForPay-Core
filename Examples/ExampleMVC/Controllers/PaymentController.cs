@@ -36,6 +36,7 @@ public class PaymentController : WayForPayController
             ) 
             //Optional Fields
             {
+                OrderReference = order.Id.ToString(),
                 ClientFirstName = order.User.Name,
                 ClientEmail = order.User.Email
             };
@@ -49,10 +50,15 @@ public class PaymentController : WayForPayController
     // Do not specify routing, it maps automatically to MerchantSettings.ServiceUrl
     public override async Task<GateRequestResult> MerchantServiceEndpoint(GateRequestBody requestBody)
     {
+        // Handle here
         if (requestBody.TransactionStatus == "Approved") {
-            // Handle here
             Order order = _dbContext.Orders.First(o => o.Id == Convert.ToInt32(requestBody.OrderReference));
             order.Paid = true;
+            await _dbContext.SaveChangesAsync();
+        }
+        else if (requestBody.TransactionStatus == "Refunded") {
+            Order order = _dbContext.Orders.First(o => o.Id == Convert.ToInt32(requestBody.OrderReference));
+            order.Paid = false;
             await _dbContext.SaveChangesAsync();
         }
         // Be sure to return it if all the operations was successful.
