@@ -1,7 +1,8 @@
 # WayForPayCore
 is a .NET Core library for integrating with the WayForPay payment system in ASP.NET Core MVC applications.
 ## Getting Started
-
+Install NuGet package
+```dotnet add package WayForPayCore --version 1.0.0```
 ### Configuration
 Configure WayForPay settings using environment variables or in `appsettings.json`:
 ```json
